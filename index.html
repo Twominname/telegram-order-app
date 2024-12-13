@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Меню заказа</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        .menu-item {
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .menu-item button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .menu-item button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Меню заказа</h1>
+    <div class="menu-item">
+        <span>Бургер - 250 ₽</span>
+        <button onclick="addToOrder('Бургер', 250)">Добавить</button>
+    </div>
+    <div class="menu-item">
+        <span>Пицца - 500 ₽</span>
+        <button onclick="addToOrder('Пицца', 500)">Добавить</button>
+    </div>
+    <div class="menu-item">
+        <span>Суши - 350 ₽</span>
+        <button onclick="addToOrder('Суши', 350)">Добавить</button>
+    </div>
+    <div class="menu-item">
+        <span>Салат - 200 ₽</span>
+        <button onclick="addToOrder('Салат', 200)">Добавить</button>
+    </div>
+
+    <h3>Ваш заказ:</h3>
+    <ul id="order-list"></ul>
+    <p><strong>Итого: </strong><span id="total-price">0</span> ₽</p>
+
+    <script>
+        let order = [];
+        let totalPrice = 0;
+
+        function addToOrder(dish, price) {
+            order.push(dish);
+            totalPrice += price;
+
+            // Обновляем список заказанных блюд
+            let orderList = document.getElementById('order-list');
+            let listItem = document.createElement('li');
+            listItem.textContent = `${dish} - ${price} ₽`;
+            orderList.appendChild(listItem);
+
+            // Обновляем общую сумму
+            document.getElementById('total-price').textContent = totalPrice;
+        }
+    </script>
+</body>
+</html>
