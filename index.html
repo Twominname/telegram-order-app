@@ -3,76 +3,116 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Меню заказа</title>
+    <title>Меню</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            padding: 20px;
-            background-color: #f9f9f9;
+            text-align: center;
+            background-color: #f7f7f7;
         }
+
+        h1 {
+            color: #333;
+        }
+
         .menu-item {
-            margin: 10px 0;
+            display: inline-block;
+            margin: 20px;
             padding: 10px;
             background-color: #fff;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            width: 250px;
+            transition: transform 0.2s;
         }
-        .menu-item button {
+
+        .menu-item:hover {
+            transform: scale(1.05);
+        }
+
+        .menu-item img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .menu-item p {
+            font-size: 18px;
+            color: #555;
+        }
+
+        .button {
+            padding: 10px 20px;
             background-color: #4CAF50;
             color: white;
             border: none;
-            padding: 10px;
-            cursor: pointer;
             border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
         }
-        .menu-item button:hover {
+
+        .button:hover {
             background-color: #45a049;
         }
     </style>
 </head>
 <body>
-    <h1>Меню заказа</h1>
+    <h1>Меню</h1>
+
     <div class="menu-item">
-        <span>Бургер - 250 ₽</span>
-        <button onclick="addToOrder('Бургер', 250)">Добавить</button>
-    </div>
-    <div class="menu-item">
-        <span>Пицца - 500 ₽</span>
-        <button onclick="addToOrder('Пицца', 500)">Добавить</button>
-    </div>
-    <div class="menu-item">
-        <span>Суши - 350 ₽</span>
-        <button onclick="addToOrder('Суши', 350)">Добавить</button>
-    </div>
-    <div class="menu-item">
-        <span>Салат - 200 ₽</span>
-        <button onclick="addToOrder('Салат', 200)">Добавить</button>
+        <img src="https://via.placeholder.com/250x150" alt="Блюдо 1">
+        <p>Блюдо 1 - 100 ₽</p>
+        <button class="button" onclick="addToOrder('Блюдо 1', 100)">Добавить в заказ</button>
     </div>
 
-    <h3>Ваш заказ:</h3>
+    <div class="menu-item">
+        <img src="https://via.placeholder.com/250x150" alt="Блюдо 2">
+        <p>Блюдо 2 - 150 ₽</p>
+        <button class="button" onclick="addToOrder('Блюдо 2', 150)">Добавить в заказ</button>
+    </div>
+
+    <div class="menu-item">
+        <img src="https://via.placeholder.com/250x150" alt="Блюдо 3">
+        <p>Блюдо 3 - 200 ₽</p>
+        <button class="button" onclick="addToOrder('Блюдо 3', 200)">Добавить в заказ</button>
+    </div>
+
+    <h2>Ваш заказ:</h2>
     <ul id="order-list"></ul>
-    <p><strong>Итого: </strong><span id="total-price">0</span> ₽</p>
 
     <script>
+        // Массив для хранения заказанных блюд
         let order = [];
-        let totalPrice = 0;
 
-        function addToOrder(dish, price) {
-            order.push(dish);
-            totalPrice += price;
+        // Функция добавления блюда в заказ
+        function addToOrder(itemName, itemPrice) {
+            // Создаем объект для блюда
+            const orderItem = {
+                name: itemName,
+                price: itemPrice
+            };
 
-            // Обновляем список заказанных блюд
-            let orderList = document.getElementById('order-list');
-            let listItem = document.createElement('li');
-            listItem.textContent = `${dish} - ${price} ₽`;
-            orderList.appendChild(listItem);
+            // Добавляем блюдо в массив
+            order.push(orderItem);
 
-            // Обновляем общую сумму
-            document.getElementById('total-price').textContent = totalPrice;
+            // Обновляем отображение заказа
+            updateOrderList();
+        }
+
+        // Функция обновления списка заказа на странице
+        function updateOrderList() {
+            // Получаем элемент списка
+            const orderList = document.getElementById('order-list');
+            orderList.innerHTML = ''; // Очищаем текущий список
+
+            // Добавляем каждое блюдо в список
+            order.forEach(item => {
+                const li = document.createElement('li');
+                li.textContent = `${item.name} - ${item.price} ₽`;
+                orderList.appendChild(li);
+            });
         }
     </script>
+
 </body>
 </html>
