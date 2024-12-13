@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -116,3 +117,71 @@
 
 </body>
 </html>
+=======
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Меню заказа</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        .dish {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .dish img {
+            width: 50px;
+            height: 50px;
+        }
+        .dish button {
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        #order {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Меню</h1>
+    <div class="dish">
+        <div>
+            <img src="https://example.com/pizza.jpg" alt="Пицца">
+            <span>Пицца - 500₽</span>
+        </div>
+        <button onclick="addToOrder('Пицца')">Добавить в заказ</button>
+    </div>
+    <div class="dish">
+        <div>
+            <img src="https://example.com/sushi.jpg" alt="Суши">
+            <span>Суши - 300₽</span>
+        </div>
+        <button onclick="addToOrder('Суши')">Добавить в заказ</button>
+    </div>
+    <div id="order">
+        <h3>Ваш заказ:</h3>
+        <ul id="orderList"></ul>
+    </div>
+
+    <script>
+        let order = [];
+
+        function addToOrder(dish) {
+            order.push(dish);
+            const orderList = document.getElementById('orderList');
+            const listItem = document.createElement('li');
+            listItem.textContent = dish;
+            orderList.appendChild(listItem);
+        }
+    </script>
+</body>
+</html>
+>>>>>>> 9795a2d9613fab82fbb332bc5d45a67854250e01
