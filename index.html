@@ -8,70 +8,58 @@
         body {
             font-family: Arial, sans-serif;
             padding: 20px;
-            background-color: #f9f9f9;
         }
-        .menu-item {
-            margin: 10px 0;
-            padding: 10px;
-            background-color: #fff;
-            border: 1px solid #ddd;
-            border-radius: 5px;
+        .dish {
             display: flex;
             justify-content: space-between;
-            align-items: center;
+            margin-bottom: 20px;
         }
-        .menu-item button {
-            background-color: #4CAF50;
+        .dish img {
+            width: 50px;
+            height: 50px;
+        }
+        .dish button {
+            padding: 10px;
+            background-color: #28a745;
             color: white;
             border: none;
-            padding: 10px;
             cursor: pointer;
-            border-radius: 5px;
         }
-        .menu-item button:hover {
-            background-color: #45a049;
+        #order {
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
-    <h1>Меню заказа</h1>
-    <div class="menu-item">
-        <span>Бургер - 250 ₽</span>
-        <button onclick="addToOrder('Бургер', 250)">Добавить</button>
+    <h1>Меню</h1>
+    <div class="dish">
+        <div>
+            <img src="https://example.com/pizza.jpg" alt="Пицца">
+            <span>Пицца - 500₽</span>
+        </div>
+        <button onclick="addToOrder('Пицца')">Добавить в заказ</button>
     </div>
-    <div class="menu-item">
-        <span>Пицца - 500 ₽</span>
-        <button onclick="addToOrder('Пицца', 500)">Добавить</button>
+    <div class="dish">
+        <div>
+            <img src="https://example.com/sushi.jpg" alt="Суши">
+            <span>Суши - 300₽</span>
+        </div>
+        <button onclick="addToOrder('Суши')">Добавить в заказ</button>
     </div>
-    <div class="menu-item">
-        <span>Суши - 350 ₽</span>
-        <button onclick="addToOrder('Суши', 350)">Добавить</button>
+    <div id="order">
+        <h3>Ваш заказ:</h3>
+        <ul id="orderList"></ul>
     </div>
-    <div class="menu-item">
-        <span>Салат - 200 ₽</span>
-        <button onclick="addToOrder('Салат', 200)">Добавить</button>
-    </div>
-
-    <h3>Ваш заказ:</h3>
-    <ul id="order-list"></ul>
-    <p><strong>Итого: </strong><span id="total-price">0</span> ₽</p>
 
     <script>
         let order = [];
-        let totalPrice = 0;
 
-        function addToOrder(dish, price) {
+        function addToOrder(dish) {
             order.push(dish);
-            totalPrice += price;
-
-            // Обновляем список заказанных блюд
-            let orderList = document.getElementById('order-list');
-            let listItem = document.createElement('li');
-            listItem.textContent = `${dish} - ${price} ₽`;
+            const orderList = document.getElementById('orderList');
+            const listItem = document.createElement('li');
+            listItem.textContent = dish;
             orderList.appendChild(listItem);
-
-            // Обновляем общую сумму
-            document.getElementById('total-price').textContent = totalPrice;
         }
     </script>
 </body>
