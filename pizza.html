@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Пицца</title>
+    <!-- Подключаем Lottie -->
+    <script src="https://unpkg.com/lottie-web@5.7.3/build/player/lottie.min.js"></script>
     <style>
         /* Добавь стиль для страницы */
         body {
@@ -14,6 +16,7 @@
             display: flex;
             justify-content: space-between;
             margin-bottom: 20px;
+            align-items: center; /* Центрируем элементы по вертикали */
         }
         .dish img {
             width: 50px;
@@ -26,6 +29,12 @@
             border: none;
             cursor: pointer;
         }
+
+        /* Контейнер для анимации */
+        #pizza-icon {
+            width: 50px;
+            height: 50px;
+        }
     </style>
 </head>
 <body>
@@ -33,6 +42,9 @@
 
     <!-- Пример блюда "Пицца Маргарита" -->
     <div class="dish">
+        <!-- Контейнер для анимации Lottie -->
+        <div id="pizza-icon"></div>
+        
         <div>
             <img src="https://example.com/pizza.jpg" alt="Пицца Маргарита">
             <span>Пицца Маргарита - 500₽</span>
@@ -43,6 +55,15 @@
     <!-- Добавь другие блюда по аналогии -->
 
     <script>
+        // Инициализация анимации Lottie
+        var pizzaIcon = lottie.loadAnimation({
+            container: document.getElementById('pizza-icon'), // Указываем контейнер для анимации
+            path: 'https://raw.githubusercontent.com/Twominname/telegram-order-app/master/images/pizza-animation.json', // Путь к вашему JSON файлу с анимацией
+            renderer: 'svg', // Отображение в формате SVG
+            loop: true, // Анимация будет повторяться
+            autoplay: true // Анимация начнется сразу
+        });
+
         let order = [];
 
         function addToOrder(dish) {

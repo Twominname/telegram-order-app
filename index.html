@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Меню</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.9.4/lottie.min.js"></script> <!-- Подключаем библиотеку Lottie -->
     <style>
         /* Общие стили */
         body {
@@ -11,16 +12,16 @@
             text-align: center;
             margin: 0;
             padding: 0;
-            background-image: url('https://github.com/Twominname/telegram-order-app/blob/master/images/fon.jpg?raw=true'); /* Используем правильную ссылку */
-            background-size: cover; /* Фон будет растянут на весь экран */
-            background-position: center; /* Центрируем фон */
-            background-repeat: no-repeat; /* Фон не повторяется */
-            min-height: 100vh; /* Устанавливаем минимальную высоту для body на 100% экрана */
-            display: flex; /* Используем Flexbox для вертикального выравнивания */
-            flex-direction: column; /* Устанавливаем вертикальное выравнивание */
-            justify-content: center; /* Центрируем контент по вертикали */
+            background-image: url('https://raw.githubusercontent.com/Twominname/telegram-order-app/refs/heads/master/images/fon.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
-        
+
         h1 {
             font-size: 36px;
             color: #333;
@@ -47,12 +48,22 @@
             cursor: pointer;
             transition: all 0.3s ease;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .category-button:hover {
             background-color: #e65100;
-            transform: scale(1.1); /* Увеличиваем кнопку при наведении */
+            transform: scale(1.1);
             box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Контейнер для анимации */
+        .animation-container {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 10px;
         }
 
         /* Добавляем немного стиля для ссылки */
@@ -64,7 +75,13 @@
 <body>
     <h1>Выберите категорию</h1>
     <div class="categories">
-        <a href="pizza.html"><button class="category-button">Пицца</button></a>
+        <!-- Кнопка с анимацией для Пиццы -->
+        <a href="pizza.html">
+            <button class="category-button">
+                <div class="animation-container" id="pizza-animation"></div> <!-- Контейнер для анимации -->
+                Пицца
+            </button>
+        </a>
         <a href="pasta.html"><button class="category-button">Паста</button></a>
         <a href="salads.html"><button class="category-button">Салаты</button></a>
         <a href="soups.html"><button class="category-button">Супы</button></a>
@@ -73,5 +90,16 @@
         <a href="desserts.html"><button class="category-button">Десерты</button></a>
         <a href="drinks.html"><button class="category-button">Напитки</button></a>
     </div>
+
+    <script>
+        // Загрузка анимации для Пиццы
+        var pizzaIcon = lottie.loadAnimation({
+            container: document.getElementById('pizza-animation'), // Контейнер для анимации
+            path: 'https://raw.githubusercontent.com/Twominname/telegram-order-app/master/images/pizza-animation.json', // Путь к JSON файлу с анимацией
+            renderer: 'svg', // Отображение в формате SVG
+            loop: true, // Анимация будет повторяться
+            autoplay: true // Анимация начнется сразу
+        });
+    </script>
 </body>
 </html>

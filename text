@@ -1,0 +1,6 @@
+git add .
+git commit -m "Обновлены стили и фон на главной странице"
+git push origin master
+python bot.py
+https://twominname.github.io/telegram-order-app/
+
