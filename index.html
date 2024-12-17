@@ -5,57 +5,77 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Меню</title>
     <style>
+        /* Общие стили */
         body {
             font-family: Arial, sans-serif;
             text-align: center;
             margin: 0;
             padding: 0;
+            background-image: url('https://github.com/Twominname/telegram-order-app/raw/302a5f7d6881485f635b216e94e4a0caf88cbbe0/fon.pdf'); /* Замените на ваше изображение */
+            background-size: cover; /* Сделает фон растянутым на весь экран */
+            background-position: center; /* Центрируем фон */
+            background-repeat: no-repeat; /* Чтобы фон не повторялся */
         }
+        
+        h1 {
+            font-size: 36px;
+            color: #333;
+            margin-top: 30px;
+        }
+
+        /* Контейнер для кнопок */
+        .categories {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        /* Стили для кнопок категорий */
         .category-button {
-            display: inline-block;
-            margin: 10px;
-            padding: 15px 30px;
+            padding: 20px 30px;
             background-color: #f9a825;
             color: white;
             border: none;
-            border-radius: 5px;
-            text-transform: uppercase;
-            font-size: 18px;
+            border-radius: 10px;
+            font-size: 20px;
             cursor: pointer;
-            transition: background-color 0.3s;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
+
         .category-button:hover {
             background-color: #e65100;
+            transform: scale(1.1); /* Увеличиваем кнопку при наведении */
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Добавляем фоновое изображение */
+        body {
+            background-image: url('https://example.com/your-image.jpg'); /* Замените на ваше изображение */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        
+        /* Добавляем немного стиля для ссылки */
+        a {
+            text-decoration: none;
         }
     </style>
 </head>
 <body>
     <h1>Выберите категорию</h1>
-    <div>
-        <a href="pizza.html">
-            <button class="category-button">Пицца</button>
-        </a>
-        <a href="pasta.html">
-            <button class="category-button">Паста</button>
-        </a>
-        <a href="salads.html">
-            <button class="category-button">Салаты</button>
-        </a>
-        <a href="soups.html">
-            <button class="category-button">Супы</button>
-        </a>
-        <a href="sushi.html">
-            <button class="category-button">Суши</button>
-        </a>
-        <a href="fastfood.html">
-            <button class="category-button">Фастфуд</button>
-        </a>
-        <a href="desserts.html">
-            <button class="category-button">Десерты</button>
-        </a>
-        <a href="drinks.html">
-            <button class="category-button">Напитки</button>
-        </a>
+    <div class="categories">
+        <a href="pizza.html"><button class="category-button">Пицца</button></a>
+        <a href="pasta.html"><button class="category-button">Паста</button></a>
+        <a href="salads.html"><button class="category-button">Салаты</button></a>
+        <a href="soups.html"><button class="category-button">Супы</button></a>
+        <a href="sushi.html"><button class="category-button">Суши</button></a>
+        <a href="fastfood.html"><button class="category-button">Фастфуд</button></a>
+        <a href="desserts.html"><button class="category-button">Десерты</button></a>
+        <a href="drinks.html"><button class="category-button">Напитки</button></a>
     </div>
 </body>
 </html>
