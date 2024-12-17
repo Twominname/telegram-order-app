@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Пицца</title>
+    <style>
+        /* Добавь стиль для страницы */
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        .dish {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .dish img {
+            width: 50px;
+            height: 50px;
+        }
+        .dish button {
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Меню Пиццы</h1>
+
+    <!-- Пример блюда "Пицца Маргарита" -->
+    <div class="dish">
+        <div>
+            <img src="https://example.com/pizza.jpg" alt="Пицца Маргарита">
+            <span>Пицца Маргарита - 500₽</span>
+        </div>
+        <button onclick="addToOrder('Пицца Маргарита')">Добавить в заказ</button>
+    </div>
+
+    <!-- Добавь другие блюда по аналогии -->
+
+    <script>
+        let order = [];
+
+        function addToOrder(dish) {
+            order.push(dish);
+            alert(dish + " добавлена в заказ!");
+        }
+    </script>
+</body>
+</html>
