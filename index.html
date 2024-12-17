@@ -11,10 +11,14 @@
             text-align: center;
             margin: 0;
             padding: 0;
-            background-image: url('https://github.com/Twominname/telegram-order-app/blob/master/images/fon.jpg?raw=true'); /* Указание правильного пути */
-            background-size: cover; /* Сделает фон растянутым на весь экран */
+            background-image: url('https://github.com/Twominname/telegram-order-app/blob/master/images/fon.jpg?raw=true'); /* Используем правильную ссылку */
+            background-size: cover; /* Фон будет растянут на весь экран */
             background-position: center; /* Центрируем фон */
-            background-repeat: no-repeat; /* Чтобы фон не повторялся */
+            background-repeat: no-repeat; /* Фон не повторяется */
+            min-height: 100vh; /* Устанавливаем минимальную высоту для body на 100% экрана */
+            display: flex; /* Используем Flexbox для вертикального выравнивания */
+            flex-direction: column; /* Устанавливаем вертикальное выравнивание */
+            justify-content: center; /* Центрируем контент по вертикали */
         }
         
         h1 {
