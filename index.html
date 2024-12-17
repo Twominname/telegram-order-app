@@ -1,6 +1,5 @@
-<<<<<<< HEAD
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,185 +8,44 @@
         body {
             font-family: Arial, sans-serif;
             text-align: center;
-            background-color: #f7f7f7;
+            margin: 0;
+            padding: 0;
         }
-
-        h1 {
-            color: #333;
-        }
-
-        .menu-item {
+        .category-button {
             display: inline-block;
-            margin: 20px;
-            padding: 10px;
-            background-color: #fff;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
-            width: 250px;
-            transition: transform 0.2s;
-        }
-
-        .menu-item:hover {
-            transform: scale(1.05);
-        }
-
-        .menu-item img {
-            width: 100%;
-            border-radius: 10px;
-        }
-
-        .menu-item p {
-            font-size: 18px;
-            color: #555;
-        }
-
-        .button {
-            padding: 10px 20px;
-            background-color: #4CAF50;
+            margin: 10px;
+            padding: 15px 30px;
+            background-color: #f9a825;
             color: white;
             border: none;
             border-radius: 5px;
+            text-transform: uppercase;
+            font-size: 18px;
             cursor: pointer;
-            font-size: 16px;
             transition: background-color 0.3s;
         }
-
-        .button:hover {
-            background-color: #45a049;
+        .category-button:hover {
+            background-color: #e65100;
         }
     </style>
 </head>
 <body>
-    <h1>Меню</h1>
-
-    <div class="menu-item">
-        <img src="https://twominname.github.io/telegram-order-app/images/carbonara.jpg" alt="Паста Карбонара">
-        <div class="item-name">Паста Карбонара</div>
-        <div class="item-price">Цена: 10€</div>
-        <button>Добавить в заказ</button>
-    </div>
-    
-
-    <div class="menu-item">
-        <img src="https://twominname.github.io/telegram-order-app/images/carbonara.jpg" alt="Паста с сыром">
-        <div class="item-name">Паста с сыром</div>
-        <div class="item-price">Цена: 7€</div>
-        <button>Добавить в заказ</button>
-    </div>
-    
-
-    <div class="menu-item">
-        <img src="https://twominname.github.io/telegram-order-app/images/carbonara.jpg" alt="Паста с курицей">
-        <div class="item-name">Паста с курицей</div>
-        <div class="item-price">Цена: 15€</div>
-        <button>Добавить в заказ</button>
-    </div>
-    
-
-    <h2>Ваш заказ:</h2>
-    <ul id="order-list"></ul>
-
-    <script>
-        // Массив для хранения заказанных блюд
-        let order = [];
-
-        // Функция добавления блюда в заказ
-        function addToOrder(itemName, itemPrice) {
-            // Создаем объект для блюда
-            const orderItem = {
-                name: itemName,
-                price: itemPrice
-            };
-
-            // Добавляем блюдо в массив
-            order.push(orderItem);
-
-            // Обновляем отображение заказа
-            updateOrderList();
-        }
-
-        // Функция обновления списка заказа на странице
-        function updateOrderList() {
-            // Получаем элемент списка
-            const orderList = document.getElementById('order-list');
-            orderList.innerHTML = ''; // Очищаем текущий список
-
-            // Добавляем каждое блюдо в список
-            order.forEach(item => {
-                const li = document.createElement('li');
-                li.textContent = `${item.name} - ${item.price} ₽`;
-                orderList.appendChild(li);
-            });
-        }
-    </script>
-
-</body>
-</html>
-=======
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Меню заказа</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            padding: 20px;
-        }
-        .dish {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 20px;
-        }
-        .dish img {
-            width: 50px;
-            height: 50px;
-        }
-        .dish button {
-            padding: 10px;
-            background-color: #28a745;
-            color: white;
-            border: none;
-            cursor: pointer;
-        }
-        #order {
-            margin-top: 20px;
-        }
-    </style>
-</head>
-<body>
-    <h1>Меню</h1>
-    <div class="dish">
-        <div>
-            <img src="https://example.com/pizza.jpg" alt="Пицца">
-            <span>Пицца - 500₽</span>
-        </div>
-        <button onclick="addToOrder('Пицца')">Добавить в заказ</button>
-    </div>
-    <div class="dish">
-        <div>
-            <img src="https://example.com/sushi.jpg" alt="Суши">
-            <span>Суши - 300₽</span>
-        </div>
-        <button onclick="addToOrder('Суши')">Добавить в заказ</button>
-    </div>
-    <div id="order">
-        <h3>Ваш заказ:</h3>
-        <ul id="orderList"></ul>
+    <h1>Выберите категорию</h1>
+    <div>
+        <button class="category-button" onclick="goToCategory('pizza')">Пиццы</button>
+        <button class="category-button" onclick="goToCategory('pasta')">Пасты</button>
+        <button class="category-button" onclick="goToCategory('salads')">Салаты</button>
+        <button class="category-button" onclick="goToCategory('soups')">Супы</button>
+        <button class="category-button" onclick="goToCategory('sushi')">Суши</button>
+        <button class="category-button" onclick="goToCategory('fastfood')">Фастфуд</button>
+        <button class="category-button" onclick="goToCategory('desserts')">Десерты</button>
+        <button class="category-button" onclick="goToCategory('drinks')">Напитки</button>
     </div>
 
     <script>
-        let order = [];
-
-        function addToOrder(dish) {
-            order.push(dish);
-            const orderList = document.getElementById('orderList');
-            const listItem = document.createElement('li');
-            listItem.textContent = dish;
-            orderList.appendChild(listItem);
+        function goToCategory(category) {
+            window.location.href = `${category}.html`;
         }
     </script>
 </body>
 </html>
->>>>>>> 9795a2d9613fab82fbb332bc5d45a67854250e01
