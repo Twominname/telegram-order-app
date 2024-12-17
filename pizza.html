@@ -4,72 +4,144 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Пицца</title>
-    <!-- Подключаем Lottie -->
-    <script src="https://unpkg.com/lottie-web@5.7.3/build/player/lottie.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.9.4/lottie.min.js"></script> <!-- Подключаем библиотеку Lottie -->
+    <link href="https://fonts.googleapis.com/css2?family=Lora&display=swap" rel="stylesheet"> <!-- Подключаем шрифт Lora -->
     <style>
-        /* Добавь стиль для страницы */
+        /* Общие стили */
         body {
-            font-family: Arial, sans-serif;
-            padding: 20px;
-        }
-        .dish {
+            font-family: 'Lora', serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-image: url('https://raw.githubusercontent.com/Twominname/telegram-order-app/refs/heads/master/images/fon.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            min-height: 100vh;
             display: flex;
+            flex-direction: column;
             justify-content: space-between;
-            margin-bottom: 20px;
-            align-items: center; /* Центрируем элементы по вертикали */
         }
-        .dish img {
-            width: 50px;
-            height: 50px;
+
+        h1 {
+            font-size: 36px;
+            color: #fff;
+            margin-top: 30px;
         }
-        .dish button {
-            padding: 10px;
-            background-color: #28a745;
+
+        /* Контейнер для кнопок */
+        .pizza-categories {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        /* Стили для кнопок категорий */
+        .pizza-button {
+            padding: 20px 30px;
+            background-color: #f9a825;
             color: white;
             border: none;
+            border-radius: 10px;
+            font-size: 20px;
             cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .pizza-button:hover {
+            background-color: #e65100;
+            transform: scale(1.1);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
         }
 
         /* Контейнер для анимации */
-        #pizza-icon {
+        .animation-container {
             width: 50px;
             height: 50px;
+            margin-bottom: 10px;
+        }
+
+        /* Добавляем немного стиля для ссылки */
+        a {
+            text-decoration: none;
         }
     </style>
 </head>
 <body>
-    <h1>Меню Пиццы</h1>
-
-    <!-- Пример блюда "Пицца Маргарита" -->
-    <div class="dish">
-        <!-- Контейнер для анимации Lottie -->
-        <div id="pizza-icon"></div>
-        
-        <div>
-            <img src="https://example.com/pizza.jpg" alt="Пицца Маргарита">
-            <span>Пицца Маргарита - 500₽</span>
-        </div>
-        <button onclick="addToOrder('Пицца Маргарита')">Добавить в заказ</button>
+    <h1>Выберите пиццу</h1>
+    <div class="pizza-categories">
+        <!-- Кнопка для Пепперони -->
+        <a href="pepperoni.html">
+            <button class="pizza-button">
+                <div class="animation-container" id="pepperoni-animation"></div> <!-- Контейнер для анимации -->
+                Пепперони
+            </button>
+        </a>
+        <!-- Кнопка для Маргарита -->
+        <a href="margarita.html">
+            <button class="pizza-button">
+                <div class="animation-container" id="margarita-animation"></div> <!-- Контейнер для анимации -->
+                Маргарита
+            </button>
+        </a>
+        <!-- Кнопка для Вегетарианская -->
+        <a href="vegetarian.html">
+            <button class="pizza-button">
+                <div class="animation-container" id="vegetarian-animation"></div> <!-- Контейнер для анимации -->
+                Вегетарианская
+            </button>
+        </a>
+        <!-- Кнопка для Гавайская -->
+        <a href="hawaiian.html">
+            <button class="pizza-button">
+                <div class="animation-container" id="hawaiian-animation"></div> <!-- Контейнер для анимации -->
+                Гавайская
+            </button>
+        </a>
     </div>
 
-    <!-- Добавь другие блюда по аналогии -->
-
     <script>
-        // Инициализация анимации Lottie
-        var pizzaIcon = lottie.loadAnimation({
-            container: document.getElementById('pizza-icon'), // Указываем контейнер для анимации
-            path: 'https://raw.githubusercontent.com/Twominname/telegram-order-app/master/images/pizza-animation.json', // Путь к вашему JSON файлу с анимацией
-            renderer: 'svg', // Отображение в формате SVG
-            loop: true, // Анимация будет повторяться
-            autoplay: true // Анимация начнется сразу
+        // Загрузка анимации для Пепперони
+        var pepperoniIcon = lottie.loadAnimation({
+            container: document.getElementById('pepperoni-animation'), 
+            path: 'https://raw.githubusercontent.com/Twominname/telegram-order-app/master/images/pizza-animation.json', 
+            renderer: 'svg', 
+            loop: true, 
+            autoplay: true 
         });
 
-        let order = [];
+        // Загрузка анимации для Маргарита
+        var margaritaIcon = lottie.loadAnimation({
+            container: document.getElementById('margarita-animation'),
+            path: 'https://raw.githubusercontent.com/Twominname/telegram-order-app/master/images/pizza-animation.json',
+            renderer: 'svg',
+            loop: true,
+            autoplay: true
+        });
 
-        function addToOrder(dish) {
-            order.push(dish);
-            alert(dish + " добавлена в заказ!");
-        }
+        // Загрузка анимации для Вегетарианской
+        var vegetarianIcon = lottie.loadAnimation({
+            container: document.getElementById('vegetarian-animation'),
+            path: 'https://raw.githubusercontent.com/Twominname/telegram-order-app/master/images/pizza-animation.json',
+            renderer: 'svg',
+            loop: true,
+            autoplay: true
+        });
+
+        // Загрузка анимации для Гавайской
+        var hawaiianIcon = lottie.loadAnimation({
+            container: document.getElementById('hawaiian-animation'),
+            path: 'https://raw.githubusercontent.com/Twominname/telegram-order-app/master/images/pizza-animation.json',
+            renderer: 'svg',
+            loop: true,
+            autoplay: true
+        });
     </script>
 </body>
 </html>
